@@ -101,6 +101,8 @@ docker run --gpus all -it --rm gpu-graph-cli
 
 ## Скриншот
 
+<img src="screenshot/image.png" width="600" alt="GPU Graph CLI Screenshot">
+
 Интерфейс выполнен в киберпанк эстетике:
 - Цветовая схема с неоновыми зелёным, голубым, пурпурным и жёлтым цветами
 - Спарклайн графики в реальном времени

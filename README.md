@@ -101,6 +101,8 @@ For each GPU, the following metrics are shown:
 
 ## Screenshot
 
+<img src="screenshot/image.png" width="600" alt="GPU Graph CLI Screenshot">
+
 The interface features a cyberpunk aesthetic with:
 - Neon green, cyan, magenta, and yellow color scheme
 - Real-time sparkline graphs
