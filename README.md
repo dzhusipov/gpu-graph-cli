@@ -17,6 +17,36 @@ A terminal-based utility written in Rust for monitoring NVIDIA GPU utilization v
 - NVIDIA drivers with nvidia-smi
 - Linux (for nvidia-smi support)
 
+## Dependencies
+
+| Crate | Version | Description |
+|-------|---------|-------------|
+| ratatui | 0.29.0 | Terminal UI framework |
+| crossterm | 0.29.0 | Cross-platform terminal manipulation |
+| tokio | 1.48.0 | Async runtime |
+| chrono | 0.4.42 | Date and time library |
+
+## Project Structure
+
+```
+src/
+├── main.rs      # Entry point, terminal setup/cleanup, main loop
+├── app.rs       # App struct - application state management
+├── models.rs    # GpuDataPoint, GpuInfo - data models
+├── nvidia.rs    # fetch_gpu_data - nvidia-smi integration
+├── theme.rs     # Color constants (NEON_GREEN, DARK_BG, etc.)
+└── ui.rs        # UI rendering functions
+```
+
+### Architecture
+
+- **`models.rs`** — Data structures (Data Layer)
+- **`nvidia.rs`** — External system integration (Infrastructure Layer)
+- **`theme.rs`** — Style configuration (Presentation Constants)
+- **`ui.rs`** — Interface rendering (Presentation Layer)
+- **`app.rs`** — Application business logic (Application Layer)
+- **`main.rs`** — Initialization and main loop (Entry Point)
+
 ## Building
 
 ```bash
@@ -75,3 +105,7 @@ The interface features a cyberpunk aesthetic with:
 - Neon green, cyan, magenta, and yellow color scheme
 - Real-time sparkline graphs
 - Status indicators that change color based on load levels
+
+## License
+
+MIT
