@@ -1,65 +1,77 @@
 # GPU Graph CLI
 
-Консольная утилита на Rust для мониторинга утилизации видеокарт NVIDIA через nvidia-smi с отображением графиков в реальном времени.
+A terminal-based utility written in Rust for monitoring NVIDIA GPU utilization via nvidia-smi with real-time graph visualization.
 
-## Возможности
+## Features
 
-- Мониторинг нескольких видеокарт одновременно
-- Отображение графиков утилизации GPU, использования памяти, температуры и энергопотребления
-- Выбор временных диапазонов: 1 час, 30 минут, 15 минут, 10 минут, 5 минут, 3 минуты, 1 минута, 30 секунд, 10 секунд
-- Данные хранятся только в памяти (без сохранения на диск)
-- Обновление данных каждую секунду
+- Monitor multiple GPUs simultaneously
+- Real-time display of GPU utilization, memory usage, temperature, and power consumption
+- Cyberpunk/hacker-style visual theme with neon colors
+- Data stored in memory only (no disk persistence)
+- Data updates every second
+- Stores last 60 minutes of metrics history
 
-## Требования
+## Requirements
 
-- Rust (версия 1.75 или выше)
-- NVIDIA драйверы с nvidia-smi
-- Linux (для работы с nvidia-smi)
+- Rust (version 1.75 or higher)
+- NVIDIA drivers with nvidia-smi
+- Linux (for nvidia-smi support)
 
-## Сборка
+## Building
 
 ```bash
 cargo build --release
 ```
 
-## Запуск
+## Running
 
 ```bash
 cargo run --release
 ```
 
-Или после сборки:
+Or after building:
 
 ```bash
 ./target/release/gpu-graph-cli
 ```
 
-## Управление
+## Controls
 
-- `←` / `→` - переключение между временными диапазонами
-- `q` или `Esc` - выход из программы
+- `q` or `Esc` - exit the program
 
 ## Docker
 
-### Сборка образа
+### Building the Image
 
 ```bash
 docker build -t gpu-graph-cli .
 ```
 
-### Запуск контейнера
+### Running the Container
 
 ```bash
 docker run --gpus all -it --rm gpu-graph-cli
 ```
 
-**Важно**: Для работы с GPU в Docker необходим nvidia-container-runtime. Убедитесь, что он установлен на вашей системе.
+Or use the convenience script:
 
-## Отображаемые метрики
+```bash
+./docker-run.sh
+```
 
-Для каждой видеокарты отображаются:
-- **GPU Utilization** - процент использования GPU (график)
-- **Memory Usage** - использование памяти (индикатор прогресса)
-- **Temperature** - температура GPU (график)
-- **Power Usage** - энергопотребление (график)
+**Important**: nvidia-container-runtime is required for GPU access in Docker. Make sure it's installed on your system.
 
+## Displayed Metrics
+
+For each GPU, the following metrics are shown:
+- **GPU Utilization** - percentage of GPU usage (progress bar + sparkline graph)
+- **Memory Usage** - memory utilization (progress bar)
+- **Temperature** - GPU temperature in °C (sparkline graph)
+- **Power Usage** - power consumption in Watts
+
+## Screenshot
+
+The interface features a cyberpunk aesthetic with:
+- Neon green, cyan, magenta, and yellow color scheme
+- Real-time sparkline graphs
+- Status indicators that change color based on load levels
